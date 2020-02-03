@@ -7,11 +7,12 @@
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *node = *list, *j_node, *tmp, *actual;
+	listint_t *node, *j_node, *tmp, *actual;
 	int swap = 0;
 
 	if (!list || !*list)
 		return;
+	node = *list;
 	while (node->next)
 	{
 		actual = node;
@@ -43,8 +44,7 @@ void insertion_sort_list(listint_t **list)
 			}
 			else
 				break;
-		}
-		swap = 0;
+		} swap = 0;
 		node =  actual->next;
 	}
 }
