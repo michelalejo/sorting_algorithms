@@ -7,7 +7,7 @@
  *  @high: is the high index
  *  Return: the pivot's index at the end
  */
-int partition(int *array, int low, int high)
+int partition(int *array, int low, int high, int size)
 {
 	int i = low, j, tmp;
 
@@ -18,12 +18,19 @@ int partition(int *array, int low, int high)
 			tmp = array[i];
 			array[i] = array[j];
 			array[j] = tmp;
+            if (i != j)
+                print_array(array, size);
 			i++;
 		}
 	}
 	tmp = array[high];
 	array[high] = array[i];
 	array[i] = tmp;
+    if (i != high)
+    {
+        print_array(array, size);
+    }
+    
 	return (i);
 }
 
@@ -34,15 +41,15 @@ int partition(int *array, int low, int high)
  *  @high: is the high index
  *  Return: nothing
  */
-void sort(int *array, int low, int high)
+void sort(int *array, int low, int high, int size)
 {
 	int p;
 
 	if (low < high)
 	{
-		p = partition(array, low, high);
-		sort(array, low, p - 1);
-		sort(array, p + 1, high);
+		p = partition(array, low, high, size);
+		sort(array, low, p - 1, size);
+		sort(array, p + 1, high, size);
 	}
 }
 
@@ -57,5 +64,5 @@ void quick_sort(int *array, size_t size)
 {
 	if (!array)
 		return;
-	sort(array, 0, size - 1);
+	sort(array, 0, size - 1, size);
 }
