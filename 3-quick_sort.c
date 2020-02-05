@@ -5,6 +5,7 @@
  *  @array: is the array
  *  @low: is the low index
  *  @high: is the high index
+ *  @size: is the size of the aray
  *  Return: the pivot's index at the end
  */
 int partition(int *array, int low, int high, int size)
@@ -18,19 +19,19 @@ int partition(int *array, int low, int high, int size)
 			tmp = array[i];
 			array[i] = array[j];
 			array[j] = tmp;
-            if (i != j)
-                print_array(array, size);
+			if (i != j)
+				print_array(array, size);
 			i++;
 		}
 	}
 	tmp = array[high];
 	array[high] = array[i];
 	array[i] = tmp;
-    if (i != high)
-    {
-        print_array(array, size);
-    }
-    
+	if (i != high)
+	{
+		print_array(array, size);
+	}
+
 	return (i);
 }
 
@@ -39,6 +40,7 @@ int partition(int *array, int low, int high, int size)
  *  @array: is the array
  *  @low: is the low index
  *  @high: is the high index
+ *  @size: is the size of the aray
  *  Return: nothing
  */
 void sort(int *array, int low, int high, int size)
