@@ -13,6 +13,9 @@ void shell_sort(int *array, size_t size)
 	int tmp;
 	size_t gasp = 1, j, i;
 
+	if (!array)
+		return;
+
 	while (gasp < (size / 3))
 		gasp =  gasp * 3 + 1;
 
